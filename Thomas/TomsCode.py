@@ -4,7 +4,7 @@ Created on Sun Mar  4 23:22:58 2018
 
 @author: Raul
 """
-from Tkinter import *
+from tkinter import *
 
 window = Tk()
 window.title("LabShark")
