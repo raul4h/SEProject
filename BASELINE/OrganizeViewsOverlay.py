@@ -1,11 +1,12 @@
 from Tkinter import *
 import Project_Navigator
-from Console_Area import CN
+import Console_Area
 import DissectorBuilderArea
 import ConstWindow
+import Raw_Data
 import field
-import subprocess
-import os
+import Packet_Stream
+import Dissected_Stream
 
 def manageViews():
     if v1.get() == 0:
@@ -13,45 +14,41 @@ def manageViews():
         print 'h'
     else:
         # show project navigator
-        Project_Navigator.PN("Hello", 1)
+        Project_Navigator.PN("Hello", 0)
     if var2.get() == 0:
         #hide dissector building Area
         print 'h'
     else:
         # show dissector builder area
         DissectorBuilderArea.vp_start_gui()
-    if var3.get() == 0:
-        #hide palette
-        print 'h'
-    else:
-        # show palette
-        field.start_gui()
-        ConstWindow.start_gui()
+    
     if var4.get() == 0:
         #hide packet stream Area
         print 'h'
     else:
         # show packet stream area
-        execfile('python Project_Navigator.py')
+        Packet_Stream.PS("Hello", 0)
+        print 1
     if var5.get() == 0:
         #hide raw data Area
-        print 'h'
+        Raw_Data.hide("No error", 0)
 
     else:
         # show raw data area
-        execfile('python Project_Navigator.py')
+        Raw_Data.RN("No error",0)
     if var6.get() == 0:
         #hide console building Area
         print 'h'
     else:
         # show console builder area
-        lambda: CN("No error",0)
+         Console_Area.CN("No error",0)
     if var7.get() == 0:
         #hide dissector stream Area
         print 'h'
     else:
         # show dissector stream area
-        execfile('python Project_Navigator.py')
+        Dissected_Stream.DS("Hello", 0)
+        print 1
 
 
 
@@ -77,7 +74,6 @@ def organize_views():
     showLabel = Label(root, text="Show", background="#D9E5EF")
     projectNavLabel = Label(root, text="Project Navigation", background="#D9E5EF")
     dissectorLabel = Label(root, text="Dissector Building Area", background="#D9E5EF")
-    palleteLabel = Label(root, text="Palette", background="#D9E5EF")
     PacketStreamAreaLabel = Label(root, text="Packet Stream Area", background="#D9E5EF")
     DissectedStreamAreaLabel = Label(root, text="Dissected Stream Area", background="#D9E5EF")
     RawDataStreamLabel = Label(root, text="Raw Data Area", background="#D9E5EF")
@@ -120,74 +116,61 @@ def organize_views():
     dissOn.grid(row=3, column=7)
     show.append(dissOn)
 
-    palleteLabel.grid(row=4, column=0, sticky='W')
-    global var3
-    var3 = IntVar()
-    vars.append(var3)
-    global palleteOff
-    palleteOff = Radiobutton(root, variable=var3, value=0, background="#D9E5EF")
-    palleteOff.grid(row=4, column=5)
-    hide.append(palleteOff)
-    palleteOn = Radiobutton(root, variable=var3, value=1, background="#D9E5EF")
-    palleteOn.grid(row=4, column=7)
-    show.append(palleteOn)
-
-
-    PacketStreamAreaLabel.grid(row=5, column=0, sticky='W')
+    PacketStreamAreaLabel.grid(row=4, column=0, sticky='W')
     global var4
     var4 = IntVar()
     vars.append(var4)
     global packSOff
     packSOff = Radiobutton(root, variable=var4, value=0, background="#D9E5EF")
-    packSOff.grid(row=5, column=5)
+    packSOff.grid(row=4, column=5)
     hide.append(packSOff)
     packSOn = Radiobutton(root, variable=var4, value=1, background="#D9E5EF")
-    packSOn.grid(row=5, column=7)
+    packSOn.grid(row=4, column=7)
     show.append(packSOn)
 
-    DissectedStreamAreaLabel.grid(row=6, column=0, sticky='W')
+    DissectedStreamAreaLabel.grid(row=5, column=0, sticky='W')
     global var7
     var7 = IntVar()
     vars.append(var7)
     global dissSOff
     dissSOff = Radiobutton(root, variable=var7, value=0, background="#D9E5EF")
-    dissSOff.grid(row=6, column=5)
+    dissSOff.grid(row=5, column=5)
     hide.append(dissSOff)
     dissSOn = Radiobutton(root, variable=var7, value=1, background="#D9E5EF")
-    dissSOn.grid(row=6, column=7)
+    dissSOn.grid(row=5, column=7)
     show.append(dissSOn)
 
 
-    RawDataStreamLabel.grid(row=7, column=0, sticky='W')
+    RawDataStreamLabel.grid(row=6, column=0, sticky='W')
     global var5
     var5 = IntVar()
     vars.append(var5)
     global RDOff
     RDOff = Radiobutton(root, variable=var5, value=0, background="#D9E5EF")
-    RDOff.grid(row=7, column=5)
+    RDOff.grid(row=6, column=5)
     hide.append(RDOff)
     RDOn = Radiobutton(root, variable=var5, value=1, background="#D9E5EF")
-    RDOn.grid(row=7, column=7)
+    RDOn.grid(row=6, column=7)
     show.append(RDOn)
 
 
-    ConsoleAreaLable.grid(row=8, column=0, sticky='W')
+    ConsoleAreaLable.grid(row=7, column=0, sticky='W')
     global var6
     var6 = IntVar()
     vars.append(var6)
     global cOff
     cOff = Radiobutton(root, variable=var6, value=0, background="#D9E5EF")
-    cOff.grid(row=8, column=5)
+    cOff.grid(row=7, column=5)
     hide.append(cOff)
     cOn =  Radiobutton(root, variable=var6, value=1, background="#D9E5EF")
-    cOn.grid(row=8, column=7)
+    cOn.grid(row=7, column=7)
     show.append(cOn)
 
 
 
     restoreDefault = Button(root, text="Restore to Default", command=setDefaults)
-    restoreDefault.grid(row=10, column=0)
+    restoreDefault.grid(row=9, column=0)
     cancel = Button(root, text="Cancel", command=root.destroy)
-    cancel.grid(row=10, column=6, columnspan=1)
+    cancel.grid(row=9, column=6, columnspan=1)
     confirm = Button(root, text="Confirm", command=manageViews)
-    confirm.grid(row=10, column=7, columnspan=1)
+    confirm.grid(row=9, column=7, columnspan=1)
