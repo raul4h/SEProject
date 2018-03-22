@@ -13,6 +13,7 @@ from OrganizeViewsOverlay import organize_views
 from pcapWindow import startWindow
 
 window = Tk()
+window.iconbitmap("shark.ico")
 window.title("LabShark")
 window.configure(background="white")
 
