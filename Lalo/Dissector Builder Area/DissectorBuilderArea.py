@@ -2,6 +2,7 @@ from Tkinter import *
 import ConstWindow
 import field
 
+
 def vp_start_gui():
 
     global val, w, root
@@ -67,11 +68,13 @@ class DissectorBuilderArea:
 
         self.fieldButton = Button(self.Frame1, command = fieldWindow)
         self.fieldButton.place(relx=0.0, rely=0.13, height=43, width=296)
+        self.fieldButton.bind('<Button-1>',)
         self.fieldButton.configure(background="#d9d9d9")
         self.fieldButton.configure(pady="0")
         self.fieldButton.configure(relief=GROOVE)
         self.fieldButton.configure(text='''Field''')
         self.fieldButton.configure(width=296)
+
 
 
         self.cButton = Button(self.Frame1, command = conWindow)
