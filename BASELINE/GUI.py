@@ -10,7 +10,7 @@ from projectExport import export
 from projectImport import project_import
 from SRS_21 import test_window
 from OrganizeViewsOverlay import organize_views
-from pcapWindow import vp_start_gui
+from pcapWindow import startWindow
 
 window = Tk()
 window.title("LabShark")
@@ -56,7 +56,7 @@ Button( window,text="Import Project",command=project_import,relief="groove",widt
 Button( window,text="Export Project",command=export,relief="groove",width=12).grid(row=1,column=5,padx=2)
 Button( window,text="Generate Dissector Script",command=dissectorScript,relief="groove",width=20).grid(row=1,column=6,padx=2)
 Button( window,text="Organize Views",relief="groove",width=13, command=organize_views).grid(row=1,column=7,padx=2)
-Button( window,text="Open PCAP",relief="groove",width=11,command=vp_start_gui).grid(row=1,column=8,padx=2)
+Button( window,text="Open PCAP",relief="groove",width=11,command=startWindow).grid(row=1,column=8,padx=2)
     
 #Application Run
 window.mainloop()
