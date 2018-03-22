@@ -1,5 +1,5 @@
-from tkinter import *
-#import ttk
+from Tkinter import *
+import ttk
 
 
 def start_gui():

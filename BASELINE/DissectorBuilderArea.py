@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 import ConstWindow
 import field
 
@@ -94,5 +94,3 @@ class DissectorBuilderArea:
 
 if __name__ == '__main__':
     vp_start_gui()
-
-
