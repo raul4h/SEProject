@@ -21,12 +21,12 @@ def dissectorScript():
     projectLabel = Label(root, text="Project", background="#D9E5EF")
     project = Entry(root, text="Project Name", width=50)
     projectBrowse = Button(root, text="Browse")
-    
-    mainLabel.grid(row=0, column=1)
+
+    mainLabel.grid(row=0, column=0)
     projectLabel.grid(row=1, column=0)
     project.grid(row=1, column=1)
     projectBrowse.grid(row=1, column=3)
-    
+
     variable = StringVar(root)
     variable.set(OPTIONS[0])
     dissectorLabel = Label(root, text="Dissector Format", background="#D9E5EF")
@@ -35,17 +35,17 @@ def dissectorScript():
     dissectorFormat.config(bg = "WHITE")
     dissectorLabel.grid(row=3, column=0)
     dissectorFormat.grid(row=3, column=1)
-    
-    
+
+
     saveLocation = Label(root, text="Save Location")
     dissectorLocation = Entry(root, width=50)
     browseSaveL = Button(root, text="Browse")
-    
-    
+
+
     saveLocation.grid(row=6, column=0)
     dissectorLocation.grid(row=6, column=1)
     browseSaveL.grid(row=6, column=3)
-    
+
     generateDissector = Button(root, text="Generate")
     cancel = Button(root, text="Cancel", command=root.destroy)
     generateDissector.grid(row=10, column=2)
