@@ -6,8 +6,7 @@ class ExteriorParserController:
 
 
 	def exportToTshark(dissector_script):
-		
-		print"gonna print dissector script"
+		print "Invoking to TSHark"
 
 	def getPCAP():
 		print "gonna get PCAP"

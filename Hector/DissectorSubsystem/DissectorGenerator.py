@@ -10,7 +10,10 @@ class DissectorGenerator():
 	def __init__(self):
 		self.fileName
 
-	def generate(self, dictionary, PCAPfile):
+	def generate(self, xml):
+		
+
+
 		
 
 
@@ -28,7 +31,6 @@ class DissectorGenerator():
 
 
 
-print dictionary
 
 
 
