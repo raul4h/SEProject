@@ -11,7 +11,7 @@ def openFileExplorer():
 def dissectorScript():
     root = Toplevel()
     root.geometry("550x150")
-    root.title("Dissector Script")
+    root.title("Dissector Script Generator")
     root.resizable(False, False)
     root.configure(background="#D9E5EF")
                    

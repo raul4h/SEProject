@@ -3,14 +3,17 @@
 from Tkinter import*
 
 
+
 class CN():
 	called=1
 	
 	def __init__(self,projectName,add_or_del):
 		if CN.called:
-			self.Console_Area()
+			self.Console_Area(projectName)
+		else:
+			Label(CN.window, text=projectName, fg="Dark Gray", font="none 10").grid(row = 0,column = 0,columnspan = 8,sticky = W)
 		
-	def Console_Area(self):
+	def Console_Area(self, projectName):
 		CN.called=0
 		CN.window = Toplevel()
 		menu = Menu(CN.window)
@@ -25,5 +28,5 @@ class CN():
 		CN.window.tk.call('wm', 'iconphoto', CN.window._w, winIcon)
 
 		##### Labels for the Workspace and Projects #####
-		Label(CN.window, text="No Error Message is Displayed", fg="Dark Gray", font="none 10").grid(row = 0,column = 0,columnspan = 8,sticky = W)
+		Label(CN.window, text=projectName, fg="Dark Gray", font="none 10").grid(row = 0,column = 0,columnspan = 8,sticky = W)
 	

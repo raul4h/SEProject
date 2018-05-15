@@ -14,7 +14,7 @@ def manageViews():
         print 'h'
     else:
         # show project navigator
-        Project_Navigator.PN("Hello", 0)
+        Project_Navigator.PN("Project", 0)
     if var2.get() == 0:
         #hide dissector building Area
         print 'h'
@@ -55,7 +55,6 @@ def manageViews():
 def setDefaults():
     pnOff.select()
     dissOff.select()
-    palleteOff.select()
     packSOff.select()
     dissSOff.select()
     RDOff.select()

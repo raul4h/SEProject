@@ -32,6 +32,7 @@ class PN():
 	def Project_Navigator(self):
 		PN.called=0
 		PN.window = Toplevel()
+		
 		menu = Menu(PN.window)
 		PN.window.title("Project Navigator")
 		

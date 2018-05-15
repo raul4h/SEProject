@@ -10,7 +10,10 @@ from projectExport import export
 from projectImport import project_import
 from SRS_21 import test_window
 from OrganizeViewsOverlay import organize_views
-from pcapWindow import startWindow
+from pcapWindow import vp_start_gui
+from Project_Navigator import PN
+from Console_Area import CN
+
 
 window = Tk()
 window.iconbitmap("shark.ico")
@@ -21,6 +24,9 @@ window.configure(background="white")
 Label(window, text="Protocol Dissector Generator System", bg="white", fg="orange", font="none 16 bold").grid(row=0,column=0,columnspan=8,sticky=W)
 
 #Create Project Pop Up
+
+
+
 def create_window():
     create = Toplevel(window)
     create.configure(background="#D9E5EF")
@@ -31,7 +37,7 @@ def create_window():
     Label(create, text="Description",background="#D9E5EF").grid(row=2,column=0,sticky=W)
     Entry(create,width=50).grid(row=1,column=1,sticky=E,padx=5,pady=5,columnspan=2)
     Entry(create,width=50).grid(row=2,column=1,sticky=E,padx=5,pady=5,columnspan=2)
-    Button( create,text="Create", relief="groove").grid(row=3,column=1,padx=2, sticky=E)
+    Button( create,text="Create",command = lambda: PN("Project",0), relief="groove").grid(row=3,column=1,padx=2, sticky=E)
     Button( create,text="Cancel", relief="groove", command=create.destroy).grid(row=3,column=2,padx=2, sticky=W)
 
 #Launcher    
@@ -50,14 +56,14 @@ def launcher_window():
 
 #Buttons
 Button( window,text="Create Project",command=create_window,relief="groove",width=11).grid(row=1,column=0,padx=2)
-Button( window,text="Save Project",relief="groove",width=11).grid(row=1,column=1,padx=2)
-Button( window,text="Close Project",relief="groove",width=11).grid(row=1,column=2,padx=2)
-Button( window,text="Switch Workspace",relief="groove",width=15).grid(row=1,column=3,padx=2)
+Button( window,text="Save Project",command = lambda: CN("ERROR: NO INTERMEDIATE FORMAT CONTROLLERS DETECTED",0),relief="groove",width=11).grid(row=1,column=1,padx=2)
+Button( window,text="Close Project",command = lambda: PN("Hello",1),relief="groove",width=11).grid(row=1,column=2,padx=2)
+Button( window,text="Switch Workspace",command = lambda: CN("ERROR: NO Workspace controllers DETECTED",0),relief="groove",width=15).grid(row=1,column=3,padx=2)
 Button( window,text="Import Project",command=project_import,relief="groove",width=12).grid(row=1,column=4,padx=2)
 Button( window,text="Export Project",command=export,relief="groove",width=12).grid(row=1,column=5,padx=2)
 Button( window,text="Generate Dissector Script",command=dissectorScript,relief="groove",width=20).grid(row=1,column=6,padx=2)
 Button( window,text="Organize Views",relief="groove",width=13, command=organize_views).grid(row=1,column=7,padx=2)
-Button( window,text="Open PCAP",relief="groove",width=11,command=startWindow).grid(row=1,column=8,padx=2)
+Button( window,text="Open PCAP",relief="groove",width=11,command=vp_start_gui).grid(row=1,column=8,padx=2)
     
 #Application Run
 window.mainloop()

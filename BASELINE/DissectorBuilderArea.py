@@ -2,6 +2,7 @@ from Tkinter import *
 import ConstWindow
 import field
 
+
 def vp_start_gui():
 
     global val, w, root
@@ -17,11 +18,11 @@ def create_Dissector_Builder_Area(root, *args, **kwargs):
     w = Toplevel (root)
     top = DissectorBuilderArea (w)
     return (w, top)
-
 def fieldWindow():
- field.start_gui()
- field.create_Field()
- field.Field
+    field.start_gui()
+    field.create_Field()
+    field.Field
+
 def conWindow():
  ConstWindow.start_gui()
  ConstWindow.create_New_Toplevel()
@@ -64,13 +65,17 @@ class DissectorBuilderArea:
         self.Label4.configure(text='''Palette''')
         self.Label4.configure(width=302)
 
-        self.fieldButton = Button(self.Frame1, command= fieldWindow)
+
+        self.fieldButton = Button(self.Frame1, command = fieldWindow)
         self.fieldButton.place(relx=0.0, rely=0.13, height=43, width=296)
+        self.fieldButton.bind('<Button-1>',)
         self.fieldButton.configure(background="#d9d9d9")
         self.fieldButton.configure(pady="0")
         self.fieldButton.configure(relief=GROOVE)
         self.fieldButton.configure(text='''Field''')
         self.fieldButton.configure(width=296)
+
+
 
         self.cButton = Button(self.Frame1, command = conWindow)
         self.cButton.place(relx=-0.03, rely=0.3, height=43, width=316)
@@ -94,3 +99,5 @@ class DissectorBuilderArea:
 
 if __name__ == '__main__':
     vp_start_gui()
+
+
