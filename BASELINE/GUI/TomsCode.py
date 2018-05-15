@@ -4,7 +4,7 @@ Created on Sun Mar  4 23:22:58 2018
 
 @author: Raul
 """
-from tkinter import *
+from Tkinter import *
 
 window = Tk()
 window.title("LabShark")
@@ -154,7 +154,10 @@ def packet_info():
     Button( create,text="ADD", relief="groove").grid(row=8,column=2,padx=0,pady=5, sticky=E)
 	
 	
-	
+End_window()
+ref_window()
+packet_info()
+create_Field()
 	
 	
 def launcfher_window():
