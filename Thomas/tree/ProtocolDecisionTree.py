@@ -8,3 +8,6 @@ class ProtocolDecisionTree:
 	def setBlock(self,block):
 		self.blocks[self.counter] = block
 		self.counter = self.counter+1
+		
+	def getType(self):
+		return "ProtocolDecisionTree"

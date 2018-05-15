@@ -2,21 +2,17 @@ from Block import *
 
 class FieldBlock(Block):
 
-    def __init__(self, name, req):
-        Block.__init__(self,name, req)
-        self.isEnd = True
 		
     def __init__(self, name, req, inf, ab, fdesc, dataT, base2, masck,cons,  siz):
         Block.__init__(self,name, req)
-        self.isEnd = False
-        setInfo(self, inf)
-        setAbbr(self, ab)
-        setDesc(self, fdesc)
-        setType(self, dataT)
-        setBase(self, base2)
-        setMask(self, masck)
-        setConstraint(self, cons)
-        setSize(self, siz)
+        self.setInfo(inf)
+        self.setAbbr(ab)
+        self.setDesc(fdesc)
+        self.setType(dataT)
+        self.setBase(base2)
+        self.setMask(masck)
+        self.setConstraint(cons)
+        self.setSize(siz)
 		
 	
 		
@@ -39,7 +35,7 @@ class FieldBlock(Block):
     def setMask(self, masks):
         self.mask=masks
     
-    def setConstraint(self, constaints):
+    def setConstraint(self, constraints):
         self.Constraint = constraints
 		
     def setSize(self, sizes):
@@ -76,4 +72,6 @@ class FieldBlock(Block):
     def getIsEnd(self):
         return self.isEnd
 
+    def getType(self):
+        return "FieldBlock"
     	

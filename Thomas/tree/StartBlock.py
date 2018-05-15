@@ -8,3 +8,6 @@ class StartBlock(Block):
 
     def getDescript(self):
         return self.description
+		
+    def getType(self):
+        return "StartBlock"

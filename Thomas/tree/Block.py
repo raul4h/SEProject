@@ -5,4 +5,8 @@ class Block:
         self.required = req
 
     def Name(self):
-        return self.blockName + ", req: " + self.required
+        return self.blockName 
+		
+    def getType(self):
+        return "Block"
+		
