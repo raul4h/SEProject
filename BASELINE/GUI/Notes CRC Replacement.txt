@@ -1,0 +1,11 @@
+Analysis of current cards:
+There is no private or public responsibilities at the moment?
+No collaborators?
+It is hard to know if a responsibility is correct if I dont know the collaborations?
+Operand: Can be or must be?
+Temporary Format: That "and" can seem as two different responsibilities
+Protocol Dependency: How would it collaborate with the protocol decision tree?
+Workspace: What would it need to switch workspace?
+Exterior Parser Controller: Another "and" which could be separated to 2 responsibilities. Who would use the results known by this class?
+Dissetor Generator: What would it need to generate a dissector?
+PDGS Launcher: Rethink stores, why does it store it? Not open it?
